@@ -3,7 +3,10 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:anan_onboarding/helper/flash_helper.dart';
+import 'package:anan_onboarding/injection.dart';
 import 'package:anan_onboarding/models/design_styles.dart';
+import 'package:anan_onboarding/presentation/widgets/processing_dialog.dart';
+import 'package:anan_onboarding/services/navigation_service.dart';
 import 'package:anan_onboarding/services/services.dart';
 import 'package:mobx/mobx.dart';
 
@@ -37,6 +40,10 @@ abstract class AppBase with Store {
 
   @action
   Future<void> submitStyles() async {
+    locator<NavigationService>().showLoadingDialog(
+        child: const ProcessingDialog(message: 'Please wait...'));
+    await Services().submitStyles();
+    locator<NavigationService>().goBack();
     selectedStyles.clear();
     FlashHelper.successBar(
         message: 'You have successfully saved classic, modern');

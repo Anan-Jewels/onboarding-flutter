@@ -28,6 +28,11 @@ class NavigationService {
         arguments: arguments);
   }
 
+  Future<dynamic> showLoadingDialog({required Widget child}) async {
+    return await showDialog(
+        context: navigatorKey.currentContext!, builder: (context) => child);
+  }
+
   void goBack() {
     return navigatorKey.currentState!.pop();
   }

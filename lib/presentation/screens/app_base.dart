@@ -89,14 +89,14 @@ class _AppBaseState extends State<AppBase> {
                   ? loadingIcon(color: context.primaryColor(), isFull: true)
                   : Column(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          flex: 2,
+                        Flexible(
+                          flex: 3,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -112,6 +112,7 @@ class _AppBaseState extends State<AppBase> {
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 16.0,
+                                  vertical: 20.0,
                                 ),
                                 child: Text(
                                   'Choose some designs styles that you would prefer.',
@@ -125,8 +126,11 @@ class _AppBaseState extends State<AppBase> {
                             ],
                           ),
                         ),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
                         Flexible(
-                          flex: 8,
+                          flex: 10,
                           child: SingleChildScrollView(
                             child: Center(
                               child: Wrap(

@@ -96,4 +96,12 @@ class NetworkUtil implements BaseServices {
     );
     return Future.value(response);
   }
+
+  @override
+  Future<Response> submitStyles() async {
+   await Future.delayed(const Duration(milliseconds: 2000), () {
+      return Response('', 200);
+    });
+    return Response('', 200);
+  }
 }

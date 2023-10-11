@@ -24,4 +24,9 @@ class Services implements BaseServices {
   Future<Response> getDesignStyles() async {
     return await serviceApi.getDesignStyles();
   }
+
+  @override
+  Future<Response> submitStyles() async {
+    return await serviceApi.submitStyles();
+  }
 }
