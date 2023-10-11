@@ -73,7 +73,10 @@ class FlashHelper {
         );
       },
     ).then((value) {
-      Helper.setUIOverlayStyle(color: AppConstants.primaryColor);
+      Helper.setUIOverlayStyle(
+        color: AppConstants.white,
+        dark: true,
+      );
       return value;
     });
   }
@@ -116,7 +119,10 @@ class FlashHelper {
         );
       },
     ).then((value) {
-      Helper.setUIOverlayStyle(color: AppConstants.primaryColor);
+      Helper.setUIOverlayStyle(
+        color: AppConstants.white,
+        dark: true,
+      );
       return value;
     });
   }
@@ -154,7 +160,10 @@ class FlashHelper {
         );
       },
     ).then((value) {
-      Helper.setUIOverlayStyle(color: AppConstants.primaryColor);
+      Helper.setUIOverlayStyle(
+        color: AppConstants.white,
+        dark: true,
+      );
       return value;
     });
   }
@@ -203,7 +212,10 @@ class FlashHelper {
         );
       },
     ).then((value) {
-      Helper.setUIOverlayStyle(color: AppConstants.primaryColor);
+      Helper.setUIOverlayStyle(
+        color: AppConstants.white,
+        dark: true,
+      );
       return value;
     });
   }

@@ -61,6 +61,6 @@ class _AppInitState extends State<AppInit> {
   }
 
   String onNextScreen() {
-    return RouteList.splash;
+    return RouteList.home;
   }
 }

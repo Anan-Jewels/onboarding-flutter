@@ -21,7 +21,7 @@ void main() async {
 
 Future<void> _updateSystemStyle() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  Helper.setUIOverlayStyle(color: AppConstants.primaryColor, dark: false);
+  Helper.setUIOverlayStyle(color: AppConstants.white, dark: true);
 }
 
 @InjectableInit()
@@ -59,6 +59,8 @@ extension ContextExtentions on BuildContext {
   Color crimsonColor() => AppConstants.crimsonColor;
   Color warmSandColor() => AppConstants.warmSand;
   Color accentColor() => AppConstants.accentColor;
+  Color greyColor() => const Color(0xffA0A0A0);
+  Color darkGreyColor() => const Color(0xffA0A0A0);
 
   TextStyle customStyle({
     FontWeight? fontWeight,
