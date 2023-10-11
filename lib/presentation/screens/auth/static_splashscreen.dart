@@ -2,6 +2,7 @@ import 'package:after_layout/after_layout.dart';
 import 'package:anan_onboarding/routes/route_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 
 class StaticSplashScreen extends StatefulWidget {
   final String imagePath;
@@ -19,7 +20,7 @@ class StaticSplashScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _StaticSplashScreenState createState() => _StaticSplashScreenState();
+  State<StaticSplashScreen> createState() => _StaticSplashScreenState();
 }
 
 class _StaticSplashScreenState extends State<StaticSplashScreen>
@@ -62,15 +63,18 @@ class _StaticSplashScreenState extends State<StaticSplashScreen>
                             width: MediaQuery.of(context).size.width * 0.1,
                           ),
                         )
-                      : Center(
-                          child: Image.asset(
-                            widget.imagePath,
-                            gaplessPlayback: true,
-                            height: MediaQuery.of(context).size.height * 0.4,
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+                      : widget.isLottie
+                          ? Lottie.asset('assets/lottie/splash.json')
+                          : Center(
+                              child: Image.asset(
+                                widget.imagePath,
+                                gaplessPlayback: true,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.4,
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
             ],
           ),
         ),

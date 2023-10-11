@@ -1,7 +1,9 @@
 import 'package:anan_onboarding/main.dart';
 import 'package:anan_onboarding/models/design_styles.dart';
 import 'package:anan_onboarding/presentation/widgets/check_dot.dart';
+import 'package:anan_onboarding/presentation/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class StyleCard extends StatelessWidget {
   final DesignStyles style;
@@ -37,14 +39,13 @@ class StyleCard extends StatelessWidget {
                       BlendMode.hue,
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12.0),
-                      child: Image.network(
-                        style.image ?? '',
-                        fit: BoxFit.cover,
-                        width: context.getWidth() * 0.28,
-                        height: context.getWidth() * 0.28,
-                      ),
-                    ),
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: ImageWidget(
+                          style.image ?? '',
+                          fit: BoxFit.cover,
+                          width: context.getWidth() * 0.28,
+                          height: context.getWidth() * 0.28,
+                        )),
                   ),
                 ),
                 AnimatedPositioned(
@@ -73,6 +74,10 @@ class StyleCard extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ).animate().fadeIn(duration: 350.ms).then().slideY(
+          duration: 350.ms,
+          begin: 0.25,
+          end: 0.0,
+        );
   }
 }

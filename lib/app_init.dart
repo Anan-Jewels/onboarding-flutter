@@ -55,7 +55,7 @@ class _AppInitState extends State<AppInit> {
   Widget build(BuildContext context) {
     return StaticSplashScreen(
       duration: 3000,
-      imagePath: 'assets/png/splash_logo.png',
+      isLottie: true,
       onNextScreen: onNextScreen(),
     );
   }

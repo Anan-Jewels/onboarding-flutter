@@ -4,8 +4,7 @@ const Size designRatio = Size(1080, 2400);
 
 const String assetIconPath = 'assets/icons/';
 const String assetImagePath = 'assets/images/';
-const String placeHolder = 'assets/svg/place_holder.svg';
-const String placeHolderStore = 'assets/svg/store_place_holder.svg';
+const String placeHolder = 'assets/error.gif';
 const String splashIcon = 'assets/svg/splash_icon.svg';
 const String KtermsOfUse =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et tellus at quis lectus arcu enim. Lacus, sed eros lectus feugiat lectus justo. Duis nulla bibendum. \n \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Et tellus at quis lectus arcu enim. Lacus, sed eros lectus feugiat lectus justo. Duis nulla bibendum. ipsum dolor sit amet, consectetur adipiscing elit. Et tellus at quis lectus arcu enim. Lacus, sed eros lectus feugiat lectus justo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et tellus at quis lectus arcu enim. Lacus, sed eros lectus feugiat lectus justo. Duis nulla bibendum. \n  \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Et tellus at quis lectus arcu enim. Lacus, sed eros lectus feugiat lectus justo. Duis nulla bibendum. ';
