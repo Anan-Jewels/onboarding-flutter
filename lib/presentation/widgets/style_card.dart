@@ -32,19 +32,19 @@ class StyleCard extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
+                  borderRadius: BorderRadius.circular(10.0),
                   child: ColorFiltered(
-                    colorFilter: const ColorFilter.mode(
-                      Colors.grey,
-                      BlendMode.hue,
+                    colorFilter: ColorFilter.mode(
+                      context.greyColor(),
+                      BlendMode.saturation,
                     ),
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(10.0),
                         child: ImageWidget(
                           style.image ?? '',
                           fit: BoxFit.cover,
-                          width: context.getWidth() * 0.28,
-                          height: context.getWidth() * 0.28,
+                          width: 103,
+                          height: 103,
                         )),
                   ),
                 ),
@@ -59,13 +59,14 @@ class StyleCard extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 4.0,
+              height: 10.0,
             ),
             Text(
-              style.name ?? '--',
+              style.name?.inCaps ?? '--',
               style: context.customStyle(
-                fontWeight: FontWeight.normal,
-                size: 13.0,
+                fontWeight: FontWeight.w500,
+                size: 12.0,
+                color: context.textColor(),
               ),
             ),
             const SizedBox(

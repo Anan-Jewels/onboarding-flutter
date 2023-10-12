@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const Size designRatio = Size(1080, 2400);
 
@@ -55,7 +56,7 @@ class AppConstants {
   static const Color khakiColor = Color(0xFFC4B193);
   static const Color goldenSunColor = Color(0xFFF3DC80);
   static const Color darkWoodColor = Color(0xFF321712);
-  static const Color textColor = Color(0xFF98A29D);
+  static const Color textColor = Color(0xff333333);
   static const Color borderColor = Color(0xFFE0E2E1);
   static const Color accentGradient1 = Color(0xFF60797B);
   static const Color accentGradient2 = Color(0xFF7E9EA1);
@@ -76,7 +77,7 @@ class AppConstants {
   static const Color black = Color(0xFF082017);
   static const Color warmSand = Color(0xFFE5DBD3);
   static const Color selectedBlackColor = Color(0xFF0a0a0a);
-  static const String fontName = 'Whitney';
+  static const String fontName = 'Manrope';
   static const Color darkGreen = Color(0xff082017);
 
   static TextStyle appBarText(double size) => TextStyle(
@@ -128,9 +129,7 @@ class AppConstants {
     FontStyle? style,
     double? letterSpacing,
   }) =>
-      TextStyle(
-        // fontFamily: 'Freight Neo',
-        fontFamily: 'FreightDisp Pro',
+      GoogleFonts.manrope(
         fontWeight: weight ?? FontWeight.w600,
         fontSize: size,
         letterSpacing: letterSpacing,
@@ -149,8 +148,7 @@ class AppConstants {
           TextDecoration? decoration,
           double? decorationThickness,
           Color? decorationColor}) =>
-      TextStyle(
-        fontFamily: family ?? 'FreightDisp Pro',
+      GoogleFonts.manrope(
         fontWeight: weight ?? FontWeight.w600,
         fontSize: size,
         letterSpacing: letterSpacing,
@@ -170,45 +168,11 @@ class AppConstants {
     double? letterSpacing,
     FontStyle? style,
   }) =>
-      TextStyle(
-        // fontFamily: 'Freight Disp',
-        fontFamily: 'FreightDisp Pro',
+      GoogleFonts.manrope(
         fontWeight: weight ?? FontWeight.w500,
         fontSize: size,
         letterSpacing: letterSpacing,
         color: color,
         fontStyle: style,
       );
-
-  static const Map<String, dynamic> amenities = {
-    'POOL': 'assets/amenties/swimming_pool.svg',
-    'LOUNGE': 'assets/amenties/loungue.svg',
-    'WIFI': 'assets/amenties/wifi.svg',
-    'GYM': 'assets/amenties/gym.svg',
-    'TV_ROOM': 'assets/amenties/television.svg',
-    'PARKING': 'assets/amenties/parking.svg',
-    'PROFESSIONALLY_DECORATED': 'assets/amenties/professionally_decorated.svg',
-    'WELL_EQUIPPED_KITCHEN': 'assets/amenties/well_equipped_kitchen.svg',
-    'PRIVATE_SWIMMING_POOL': 'assets/amenties/swimming_pool.svg',
-    'OWNERS_STORAGE_FACILITY': 'assets/amenties/owner_storage_facility.svg',
-    'HOUSE_HELP_AND_SECURITY': 'assets/amenties/house_help_and_security.svg',
-    'ITALIAN_COFFEE_MACHINE': 'assets/amenties/coffe_mechine.svg',
-    'FULLY_FURNISHED': 'assets/amenties/fully_furnished.svg',
-    'KID_FRIENDLY': 'assets/amenties/kids freindly.svg',
-    'CHEF_ON_CALL': 'assets/amenties/chef_on_call.svg',
-    'OPEN_DECK': 'assets/amenties/open_deck.svg',
-    'BALCONY_WITH_BAR': 'assets/amenties/balcony_with_bar.svg',
-    'LARGE_GARDEN': 'assets/amenties/loungue.svg',
-    'MOUNTAIN_VIEWS': 'assets/amenties/mountain_view.svg',
-    'MOUNTAIN_VIEW': 'assets/amenties/mountain_view.svg',
-    'WELL_EQUIPPED_WET_AND_DRY_KITCHEN':
-        'assets/amenties/well_equipped_kitchen.svg',
-    'HOUSE_HELP': 'assets/amenties/house_help_and_security.svg',
-    'OUTDOOR_HOT_TUB': 'assets/amenties/hot_bathtub.svg',
-    'HIKING_TRAIL_ACCESS': 'assets/amenties/hiking_trail_access.svg',
-    'BATHS_COUNT': 'assets/amenties/bath.svg',
-    'BEDS_COUNT': 'assets/amenties/bed.svg',
-    'AREA_SQFT': 'assets/amenties/area.svg',
-    'EXTRA5': 'assets/amenties/Default_picture.svg',
-  };
 }

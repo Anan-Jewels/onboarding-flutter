@@ -59,7 +59,7 @@ extension ContextExtentions on BuildContext {
   Color crimsonColor() => AppConstants.crimsonColor;
   Color warmSandColor() => AppConstants.warmSand;
   Color accentColor() => AppConstants.accentColor;
-  Color greyColor() => const Color(0xffA0A0A0);
+  Color greyColor() => const Color(0xffEAEBEB);
   Color darkGreyColor() => const Color(0xffA0A0A0);
 
   TextStyle customStyle({

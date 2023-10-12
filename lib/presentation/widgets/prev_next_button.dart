@@ -18,50 +18,47 @@ class PrevNextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: isPrevious
-            ? Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ChipIcon(
-                    isBack: true,
-                    isSelected: allowSelection,
+      child: isPrevious
+          ? Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ChipIcon(
+                  isBack: true,
+                  isSelected: allowSelection,
+                ),
+                const SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  'Previous',
+                  style: context.customStyle(
+                    color: context.textColor(),
+                    fontWeight: FontWeight.w600,
+                    size: 16.0,
                   ),
-                  const SizedBox(
-                    width: 8.0,
+                ),
+              ],
+            )
+          : Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Next',
+                  style: context.customStyle(
+                    color: context.textColor(),
+                    fontWeight: FontWeight.w600,
+                    size: 16.0,
                   ),
-                  Text(
-                    'Previous',
-                    style: context.customStyle(
-                      color: context.black(),
-                      fontWeight: FontWeight.normal,
-                      size: 14.0,
-                    ),
-                  ),
-                ],
-              )
-            : Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Next',
-                    style: context.customStyle(
-                      color: context.black(),
-                      fontWeight: FontWeight.normal,
-                      size: 14.0,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  ChipIcon(
-                    isBack: false,
-                    isSelected: allowSelection,
-                  ),
-                ],
-              ),
-      ),
+                ),
+                const SizedBox(
+                  width: 10.0,
+                ),
+                ChipIcon(
+                  isBack: false,
+                  isSelected: allowSelection,
+                ),
+              ],
+            ),
     );
   }
 }

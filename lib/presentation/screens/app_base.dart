@@ -1,6 +1,7 @@
 import 'package:anan_onboarding/helper/Helper.dart';
 import 'package:anan_onboarding/helper/flash_helper.dart';
 import 'package:anan_onboarding/main.dart';
+import 'package:anan_onboarding/presentation/widgets/header.dart';
 import 'package:anan_onboarding/presentation/widgets/prev_next_button.dart';
 import 'package:anan_onboarding/presentation/widgets/style_card.dart';
 import 'package:anan_onboarding/store/app_store.dart';
@@ -52,7 +53,8 @@ class _AppBaseState extends State<AppBase> {
       child: Scaffold(
         bottomNavigationBar: AnimatedContainer(
           duration: const Duration(milliseconds: 350),
-          height: 70.0,
+          height: 100.0,
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -79,86 +81,47 @@ class _AppBaseState extends State<AppBase> {
             ],
           ),
         ),
-        body: RefreshIndicator(
-          onRefresh: () async {
-            store.init();
-          },
-          child: SafeArea(
-            child: Observer(
-              builder: (context) => store.styles == null
-                  ? loadingIcon(color: context.primaryColor(), isFull: true)
-                  : Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Flexible(
-                          flex: 3,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 30.0,
-                                  horizontal: 16.0,
-                                ),
-                                child: LinearProgressIndicator(
-                                  color: Colors.black,
-                                  backgroundColor: Colors.grey[400],
-                                  value: 0.25,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0,
-                                  vertical: 20.0,
-                                ),
-                                child: Text(
-                                  'Choose some designs styles that you would prefer.',
-                                  style: context.customStyle(
-                                    color: context.black(),
-                                    size: 18.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Flexible(
-                          flex: 10,
-                          child: SingleChildScrollView(
-                            child: Center(
-                              child: Wrap(
-                                runSpacing: 16.0,
-                                spacing: 16.0,
-                                children: [
-                                  ...store.styles!
-                                      .map(
-                                        (style) => StyleCard(
-                                          style: style,
-                                          isSelected: store.selectedStyles
-                                              .contains(style),
-                                          onTap: () {
-                                            setState(() {
-                                              store.selectStyle(style: style);
-                                            });
-                                          },
-                                        ),
-                                      )
-                                      .toList()
-                                ],
-                              ),
+        body: SafeArea(
+          child: Observer(
+            builder: (context) => store.styles == null
+                ? loadingIcon(color: context.primaryColor(), isFull: true)
+                : Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Header(),
+                      const SizedBox(
+                        height: 30.0,
+                      ),
+                      Flexible(
+                        flex: 10,
+                        child: SingleChildScrollView(
+                          child: Center(
+                            child: Wrap(
+                              runSpacing: 20.0,
+                              spacing: 18.0,
+                              children: [
+                                ...store.styles!
+                                    .map(
+                                      (style) => StyleCard(
+                                        style: style,
+                                        isSelected: store.selectedStyles
+                                            .contains(style),
+                                        onTap: () {
+                                          setState(() {
+                                            store.selectStyle(style: style);
+                                          });
+                                        },
+                                      ),
+                                    )
+                                    .toList()
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
-            ),
+                      ),
+                    ],
+                  ),
           ),
         ),
       ),
