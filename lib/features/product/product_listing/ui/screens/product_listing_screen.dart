@@ -94,7 +94,9 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
                                 );
                               }),
                         ),
-                        const ProductListingActions()
+                        BlocProvider.value(
+                          value: _productListingBloc,
+                          child: const ProductListingActions())
                       ],
                     ),
                   ),

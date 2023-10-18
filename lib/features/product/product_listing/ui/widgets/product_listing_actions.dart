@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onboarding_flutter/features/product/product_listing/bloc/product_listing_bloc.dart';
 
 class ProductListingActions extends StatelessWidget {
   const ProductListingActions({
@@ -39,30 +41,36 @@ class ProductListingActions extends StatelessWidget {
               )
             ],
           ),
-          Row(
-            children: [
-              const Text(
-                'Previous',
-                style: TextStyle(fontSize: 20.0),
-              ),
-              const SizedBox(
-                width: 8.0,
-              ),
-              Container(
-                height: 34.0,
-                width: 34.0,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColorDark,
-                  borderRadius: BorderRadius.circular(17.0),
+          InkWell(
+            onTap: () {
+              BlocProvider.of<ProductListingBloc>(context)
+                  .add(OnTapNextEvent(context: context));
+            },
+            child: Row(
+              children: [
+                const Text(
+                  'Previous',
+                  style: TextStyle(fontSize: 20.0),
                 ),
-                child: Center(
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: Colors.white,
+                const SizedBox(
+                  width: 8.0,
+                ),
+                Container(
+                  height: 34.0,
+                  width: 34.0,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColorDark,
+                    borderRadius: BorderRadius.circular(17.0),
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
