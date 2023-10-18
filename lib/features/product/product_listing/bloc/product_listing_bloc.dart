@@ -45,7 +45,9 @@ class ProductListingBloc
         selected.add(product.name);
       }
     }
-
+    if (selected.isNotEmpty) {
+      _productListingRepository.updateProducts(products);
+    }
     if (selected.length >= 3) {
       ScaffoldMessenger.of(event.context).clearSnackBars();
       ScaffoldMessenger.of(event.context).showSnackBar(SnackBar(

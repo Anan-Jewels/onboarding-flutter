@@ -24,4 +24,20 @@ class ProductListingRepositoryImpl implements ProductListingRepository {
       return NetworkResponse.fail(e);
     }
   }
+  
+  @override
+  Future<NetworkResponse<List<Product>>> updateProducts(List<Product> products) async{
+    try {
+      var apiRes = await DioClient.instance.get(
+          path:
+              'UPDATE_POST_URL');
+      if (apiRes.isEmpty || apiRes['error'] != null) {
+        return NetworkResponse.fail(apiRes['error']);
+      } else {
+        return NetworkResponse.success(products);
+      }
+    } catch (e) {
+      return NetworkResponse.fail(e);
+    }
+  }
 }

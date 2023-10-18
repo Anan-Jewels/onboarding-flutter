@@ -3,4 +3,6 @@ import 'package:onboarding_flutter/features/product/product_listing/data/product
 
 abstract class ProductListingRepository {
   Future<NetworkResponse<List<Product>>> fetchProducts();
+
+  Future<NetworkResponse<List<Product>>> updateProducts(List<Product> products);
 }
