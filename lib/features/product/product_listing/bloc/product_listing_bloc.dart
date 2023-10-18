@@ -3,6 +3,7 @@ import 'package:onboarding_flutter/core/network/network_response.dart';
 import 'package:onboarding_flutter/features/product/product_listing/data/product.dart';
 import 'package:onboarding_flutter/features/product/product_listing/repository/product_listing_repository.dart';
 import 'package:onboarding_flutter/features/product/product_listing/repository/product_listing_repository_impl.dart';
+import 'package:onboarding_flutter/features/product/product_selection/cubit/product_selection_cubit.dart';
 
 part 'product_listing_event.dart';
 part 'product_listing_state.dart';
@@ -11,6 +12,7 @@ class ProductListingBloc
     extends Bloc<ProductListingEvent, ProductListingState> {
   final ProductListingRepository _productListingRepository =
       ProductListingRepositoryImpl();
+  final ProductSelectionCubit _productSelectionCubit = ProductSelectionCubit();
   ProductListingBloc() : super(ProductListingLoadingState()) {
     on<LoadProductListingEvent>((event, emit) => _loadLListing(event, emit));
   }
@@ -29,4 +31,5 @@ class ProductListingBloc
       emit(ProductListingErrorState(errorMsg: 'Something went wront $e'));
     }
   }
+  ProductSelectionCubit get selectionCubit => _productSelectionCubit;
 }
