@@ -20,7 +20,7 @@ class ProductSelectionWidget extends StatelessWidget {
               },
               child: Icon(
                 Icons.check_circle,
-                color: Colors.grey.shade700,
+                color: Color(0XFF737B83),
               ),
             )
           : InkWell(

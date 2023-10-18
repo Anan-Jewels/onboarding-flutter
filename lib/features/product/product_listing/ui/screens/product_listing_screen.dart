@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onboarding_flutter/features/product/product_listing/bloc/product_listing_bloc.dart';
+import 'package:onboarding_flutter/features/product/product_listing/ui/widgets/page_progress_indicator.dart';
+import 'package:onboarding_flutter/features/product/product_listing/ui/widgets/product_card.dart';
+import 'package:onboarding_flutter/features/product/product_listing/ui/widgets/product_card_title.dart';
+import 'package:onboarding_flutter/features/product/product_listing/ui/widgets/product_listing_actions.dart';
 import 'package:onboarding_flutter/features/product/product_selection/ui/product_selection_widget.dart';
 
 class ProductListingScreen extends StatefulWidget {
@@ -38,15 +42,19 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const PageProgressIndicator(),
+                        const SizedBox(
+                          height: 36.0,
+                        ),
                         const Text(
                           'Choose some design styles that you would prefer.',
                           style: TextStyle(
-                              fontSize: 24.0,
+                              fontSize: 20.0,
                               color: Colors.black,
-                              fontWeight: FontWeight.w300),
+                              fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(
-                          height: 24.0,
+                          height: 48.0,
                         ),
                         Expanded(
                           child: GridView.builder(
@@ -64,25 +72,8 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
                                   children: [
                                     Stack(
                                       children: [
-                                        Container(
-                                          height: 100.0,
-                                          width: 100.0,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0XFFEAEBEB),
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
-                                            child: ColorFiltered(
-                                              colorFilter: const ColorFilter.mode(
-                                                Colors.grey,
-                                                BlendMode.saturation,
-                                              ),
-                                              child: Image.network(
-                                                  state.products[index].image),
-                                            ),
-                                          ),
+                                        ProductCard(
+                                          product: state.products[index],
                                         ),
                                         Positioned(
                                             right: 2.0,
@@ -95,16 +86,15 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 8.0, horizontal: 12.0),
-                                      child: Text(
-                                        state.products[index].name,
-                                        maxLines: 2,
-                                        textAlign: TextAlign.center,
+                                      child: ProductCardTitle(
+                                        product: state.products[index],
                                       ),
                                     )
                                   ],
                                 );
                               }),
-                        )
+                        ),
+                        const ProductListingActions()
                       ],
                     ),
                   ),
