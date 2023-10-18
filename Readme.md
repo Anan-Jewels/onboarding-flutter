@@ -4,7 +4,8 @@ Figma: https://www.figma.com/file/Cp2f3DwCUnik5ktk59Xuk1/Ana-Jewels-Onboarding-
 
 Please build out the screen given, assuming that the data for each style shown comes from the mock API, given at: https://6525210567cfb1e59ce6ae75.mockapi.io/api/v1/designstyles
 
-Additionally, please setup a mock API call to post back the user selection on next, and show an alert on click saying: "You have successfully saved classic, modern"
+Additionally, please setup a mock API call to post back the user selection on next, and show an alert on click saying: "You have successfully saved {list user selected categories here}"
+For example, if user selects classic and modern, alert will say "You have successfully saved classic, modern"
 
 Note that:
 
