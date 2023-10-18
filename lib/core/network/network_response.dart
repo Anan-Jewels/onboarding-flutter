@@ -1,18 +1,26 @@
-abstract class NetworkResponse<T> {
+import 'package:equatable/equatable.dart';
+
+abstract class NetworkResponse<T> extends Equatable {
   const NetworkResponse._();
 
-  factory NetworkResponse.success(T data) = Success<T>;
-  factory NetworkResponse.fail(Object error) = Fail<T>;
+  const factory NetworkResponse.success(T data) = Success<T>;
+  const factory NetworkResponse.fail(Object error) = Fail<T>;
 }
 
 class Success<T> extends NetworkResponse<T> {
   final T data;
 
-  Success(this.data) : super._();
+  const Success(this.data) : super._();
+
+  @override
+  List<Object?> get props => [data];
 }
 
 class Fail<T> extends NetworkResponse<T> {
   final Object error;
 
-  Fail(this.error) : super._();
+  const Fail(this.error) : super._();
+
+  @override
+  List<Object?> get props => [error];
 }
