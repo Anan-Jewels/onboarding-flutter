@@ -13,3 +13,13 @@ Note that:
 2. Images provided from the URL may be in varied color schemes and they should all present as greyscale as per the figma
 3. Please keep your code as clean and easy to understand as possible.
 4. Please add any instructions to the Readme if required with respect to running the project locally
+
+
+
+///////////////////////////////////////////
+SHANTANU 
+//////////////////////////////////////////
+
+I have completed the above assignment and added one onboarding screen.
+
+Note: Product selection will not work properly since two product have same id as "3".
