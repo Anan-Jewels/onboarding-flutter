@@ -8,7 +8,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100.0,
+      height: 130.0,
       width: 100.0,
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,

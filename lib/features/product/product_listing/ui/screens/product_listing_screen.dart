@@ -62,7 +62,7 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
                               padding: EdgeInsets.zero,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
-                                      childAspectRatio: 0.80,
+                                      childAspectRatio: 0.70,
                                       crossAxisCount: 3,
                                       mainAxisSpacing: 10.0),
                               itemBuilder: (context, index) {
@@ -95,8 +95,8 @@ class _ProductListingScreenState extends State<ProductListingScreen> {
                               }),
                         ),
                         BlocProvider.value(
-                          value: _productListingBloc,
-                          child: const ProductListingActions())
+                            value: _productListingBloc,
+                            child: const ProductListingActions())
                       ],
                     ),
                   ),
