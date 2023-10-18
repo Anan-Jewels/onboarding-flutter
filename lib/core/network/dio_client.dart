@@ -1,17 +1,23 @@
 import 'package:dio/dio.dart';
-import 'package:onboarding_flutter/core/network/network_response.dart';
 
 abstract class NetworkClient {
-  Future<NetworkResponse> get({Map<String, dynamic>? queryParams});
+  Future<Map<String, dynamic>> get(
+      {required String path, Map<String, dynamic>? queryParams});
 
-  Future<NetworkResponse> post(
-      {required Map<String, dynamic> body, Map<String, dynamic>? queryParams});
+  Future<Map<String, dynamic>> post(
+      {required String path,
+      required Map<String, dynamic> body,
+      Map<String, dynamic>? queryParams});
 
-  Future<NetworkResponse> patch(
-      {required Map<String, dynamic> body, Map<String, dynamic>? queryParams});
+  Future<Map<String, dynamic>> patch(
+      {required String path,
+      required Map<String, dynamic> body,
+      Map<String, dynamic>? queryParams});
 
-  Future<NetworkResponse> delete(
-      {required Map<String, dynamic> body, Map<String, dynamic>? queryParams});
+  Future<Map<String, dynamic>> delete(
+      {required String path,
+      required Map<String, dynamic> body,
+      Map<String, dynamic>? queryParams});
 }
 
 class DioClient implements NetworkClient {
@@ -30,28 +36,51 @@ class DioClient implements NetworkClient {
 
     return _client!;
   }
-  
+
   @override
-  Future<NetworkResponse> delete({required Map<String, dynamic> body, Map<String, dynamic>? queryParams}) {
+  Future<Map<String, dynamic>> delete(
+      {required String path,
+      required Map<String, dynamic> body,
+      Map<String, dynamic>? queryParams}) {
     // TODO: implement delete
     throw UnimplementedError();
   }
-  
+
   @override
-  Future<NetworkResponse> get({Map<String, dynamic>? queryParams}) {
-    // TODO: implement get
-    throw UnimplementedError();
+  Future<Map<String, dynamic>> get(
+      {required String path, Map<String, dynamic>? queryParams}) async {
+    try {
+      var res = await _dio.get(path);
+      return res.data;
+    } catch (e) {
+      return {'error': e};
+    }
   }
-  
+
   @override
-  Future<NetworkResponse> patch({required Map<String, dynamic> body, Map<String, dynamic>? queryParams}) {
-    // TODO: implement patch
-    throw UnimplementedError();
+  Future<Map<String, dynamic>> patch(
+      {required String path,
+      required Map<String, dynamic> body,
+      Map<String, dynamic>? queryParams}) async {
+    try {
+      var res =
+          await _dio.patch(path, data: body, queryParameters: queryParams);
+      return res.data;
+    } catch (e) {
+      return {'error': e};
+    }
   }
-  
+
   @override
-  Future<NetworkResponse> post({required Map<String, dynamic> body, Map<String, dynamic>? queryParams}) {
-    // TODO: implement post
-    throw UnimplementedError();
+  Future<Map<String, dynamic>> post(
+      {required String path,
+      required Map<String, dynamic> body,
+      Map<String, dynamic>? queryParams}) async {
+    try {
+      var res = await _dio.post(path, data: body, queryParameters: queryParams);
+      return res.data;
+    } catch (e) {
+      return {'error': e};
+    }
   }
 }
