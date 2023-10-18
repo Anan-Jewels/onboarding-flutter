@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:onboarding_flutter/features/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:onboarding_flutter/features/product/product_listing/ui/screens/product_listing_screen.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primaryColor: const Color(0XFFEAEBEB),
       primaryColorDark: const Color(0XFF737B83),
       textTheme: GoogleFonts.manropeTextTheme(),),
-      home: const ProductListingScreen(),
+      home: const OnboardingScreen(),
     );
   }
 }
