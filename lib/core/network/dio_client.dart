@@ -41,9 +41,14 @@ class DioClient implements NetworkClient {
   Future<Map<String, dynamic>> delete(
       {required String path,
       required Map<String, dynamic> body,
-      Map<String, dynamic>? queryParams}) {
-    // TODO: implement delete
-    throw UnimplementedError();
+      Map<String, dynamic>? queryParams}) async {
+    try {
+      var res =
+          await _dio.delete(path, data: body, queryParameters: queryParams);
+      return {'data': res.data};
+    } catch (e) {
+      return {'error': e};
+    }
   }
 
   @override
@@ -51,7 +56,7 @@ class DioClient implements NetworkClient {
       {required String path, Map<String, dynamic>? queryParams}) async {
     try {
       var res = await _dio.get(path);
-      return res.data;
+      return {'data': res.data};
     } catch (e) {
       return {'error': e};
     }
@@ -65,7 +70,7 @@ class DioClient implements NetworkClient {
     try {
       var res =
           await _dio.patch(path, data: body, queryParameters: queryParams);
-      return res.data;
+      return {'data': res.data};
     } catch (e) {
       return {'error': e};
     }
@@ -78,7 +83,7 @@ class DioClient implements NetworkClient {
       Map<String, dynamic>? queryParams}) async {
     try {
       var res = await _dio.post(path, data: body, queryParameters: queryParams);
-      return res.data;
+      return {'data': res.data};
     } catch (e) {
       return {'error': e};
     }
