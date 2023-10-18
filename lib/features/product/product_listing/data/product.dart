@@ -1,5 +1,5 @@
 class Product {
-  final int id;
+  final String id;
   final String image;
   final String name;
   final DateTime? createdAt;
