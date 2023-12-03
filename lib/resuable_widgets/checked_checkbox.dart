@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onboarding_project/utils/app_images.dart';
 
 class CheckCheckBoxWidget extends StatelessWidget {
   const CheckCheckBoxWidget({super.key});
@@ -6,9 +7,9 @@ class CheckCheckBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-       Image(
+       const Image(
         image: AssetImage(
-            "assets/images/checkbox.png"),
+            AppImages.onboardCheckBox),
         height: 20,
         width: 20,
       );
