@@ -1,6 +1,9 @@
+import 'package:onboarding_project/dialogs/succes_dialog.dart';
+import 'package:onboarding_project/mixins/base_mixin.dart';
+
 import '../../utils/exported_imports.dart';
 
-class OnBoardingPage extends StatelessWidget {
+class OnBoardingPage extends StatelessWidget with BaseClass {
   OnBoardingPage({super.key});
 
   final OnboardingController onboardingController =
@@ -139,58 +142,65 @@ class OnBoardingPage extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        _getFooter(),
+                        _getFooter(context),
                       ],
                     ),
                   );
           }),
     );
   }
-}
 
-Widget _getFooter() {
-  return Container(
-    width: double.infinity,
-    color: Colors.white,
-    padding: const EdgeInsets.only(bottom: 20),
-    child: Column(
-      children: [
-        const Divider(
-          color: AppColors.indicatorGrey,
-        ),
-        DotsIndicator(
-          dotsCount: 9,
-          position: 1,
-          decorator: const DotsDecorator(
-            color: AppColors.indicatorGrey, // Inactive color
-            activeColor: AppColors.yellow,
+  Widget _getFooter(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Colors.white,
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Column(
+        children: [
+          const Divider(
+            color: AppColors.indicatorGrey,
           ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: TextButtonWithoutBorder(
-                buttonText: "Previous",
-                containsIcon: true,
-                onButtonClick: () {},
+          DotsIndicator(
+            dotsCount: 9,
+            position: 1,
+            decorator: const DotsDecorator(
+              color: AppColors.indicatorGrey, // Inactive color
+              activeColor: AppColors.yellow,
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: TextButtonWithoutBorder(
+                  buttonText: "Previous",
+                  containsIcon: true,
+                  onButtonClick: () {},
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Expanded(
-              child: RoundedEdgedButton(
-                buttonText: "Next",
-                onButtonClick: () {},
+              const SizedBox(
+                width: 20,
               ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
+              Expanded(
+                child: RoundedEdgedButton(
+                  buttonText: "Next",
+                  onButtonClick: () {
+                    if(onboardingController.getSelectedItemsList.isNotEmpty) {
+                      SuccessDialog.dialog(
+                          context, onboardingController.getSelectedItems(),onOkTap: (){
+                            Get.back();
+                      });
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
