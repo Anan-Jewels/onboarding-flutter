@@ -194,6 +194,9 @@ class OnBoardingPage extends StatelessWidget with BaseClass {
                             Get.back();
                       });
                     }
+                    else{
+                      showError(title: "Select", message: "Please select Items");
+                    }
                   },
                 ),
               ),
