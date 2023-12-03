@@ -1,0 +1,12 @@
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:dots_indicator/dots_indicator.dart';
+export 'package:flutter/material.dart';
+export 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+export 'package:get/get.dart';
+export '../../utils/app_colors.dart';
+export 'package:get/instance_manager.dart';
+export 'package:onboarding_project/controllers/onboarding/onboarding_controller.dart';
+export 'package:onboarding_project/resuable_widgets/rounded_edged_button.dart';
+export 'package:onboarding_project/shimmer_loaders/onboard_shimmer.dart';
+export '../../resuable_widgets/checked_checkbox.dart';
+export '../../resuable_widgets/text_button_no_border.dart';
